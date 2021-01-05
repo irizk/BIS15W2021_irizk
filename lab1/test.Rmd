@@ -1,0 +1,35 @@
+---
+title: "Test Markdown"
+author: "Ibrahim Rizk"
+date: "1/5/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# This is my first Markdown File
+
+```{r}
+4*2
+4+3
+8-2
+4/2
+```
+# This is my [email](mailto:irizk6644@gmail.com)
+## This is my [email](mailto:irizk6644@gmail.com)
+### This is my [email](mailto:irizk6644@gmail.com)
+
+## This is [google](http://www.google.com)
+
+```{r message=FALSE, warning=FALSE}
+#install.packages("tidyverse")
+library("tidyverse")
+```
+
+```{r}
+ggplot(mtcars, aes(x = factor(cyl))) +
+    geom_bar()
+```
+
