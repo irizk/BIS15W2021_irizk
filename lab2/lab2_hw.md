@@ -32,7 +32,7 @@ spring_7 <- c(32.90, 32.50, 32.80)
 spring_8 <- c(36.80, 36.45, 33.15)
 ```
 
-4. Build a data matrix that has the springs as rows and the columns as scientists.  
+4. Build a data matrix that has the springs as rows and the columns as scientists  
 
 ```r
 spring_data <- c(spring_1, spring_2, spring_3, spring_4, spring_5, spring_6, spring_7, spring_8)
