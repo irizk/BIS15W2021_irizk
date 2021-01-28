@@ -67,6 +67,11 @@ We need to deal with the years because they are being treated as characters and 
 #fisheries_tidy$catch <- as.numeric(fisheries_tidy$catch)
 ```
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+
 3. How many countries are represented in the data? Provide a count and list their names.
 ```{r}
 # I used the janitor :: clean_names(fisheries) function to change the names of the variables but I was unable to figure out how to change it to snake case :/
@@ -110,6 +115,8 @@ We need to deal with the years because they are being treated as characters and 
 ```{r}
 
 ```
+
+</div>
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences.   
