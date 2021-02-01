@@ -1,7 +1,7 @@
 ---
 title: "Lab 6 Homework"
 author: "Ibrahim Rizk"
-date: "2021-01-26"
+date: "2021-01-27"
 output:
   html_document: 
     theme: spacelab
@@ -33,13 +33,13 @@ fisheries <- readr::read_csv("data/FAO_1950to2012_111914.csv")
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   .default = col_character(),
 ##   `ISSCAAP group#` = col_double(),
 ##   `FAO major fishing area` = col_double()
 ## )
-## ℹ Use `spec()` for the full column specifications.
+## i Use `spec()` for the full column specifications.
 ```
 
 1. Do an exploratory analysis of the data (your choice). What are the names of the variables, what are the dimensions, are there any NA's, what are the classes of the variables?  
@@ -11383,19 +11383,19 @@ janitor::clean_names(fisheries)
 
 ```
 ## # A tibble: 17,692 x 71
-##    country common_name isscaap_group_n… isscaap_taxonom… asfis_species_n…
+##    country common_name isscaap_group_n~ isscaap_taxonom~ asfis_species_n~
 ##    <chr>   <chr>                  <dbl> <chr>            <chr>           
-##  1 Albania Angelshark…               38 Sharks, rays, c… 10903XXXXX      
-##  2 Albania Atlantic b…               36 Tunas, bonitos,… 1750100101      
-##  3 Albania Barracudas…               37 Miscellaneous p… 17710001XX      
-##  4 Albania Blue and r…               45 Shrimps, prawns  2280203101      
-##  5 Albania Blue whiti…               32 Cods, hakes, ha… 1480403301      
-##  6 Albania Bluefish                  37 Miscellaneous p… 1702021301      
-##  7 Albania Bogue                     33 Miscellaneous c… 1703926101      
-##  8 Albania Caramote p…               45 Shrimps, prawns  2280100117      
-##  9 Albania Catsharks,…               38 Sharks, rays, c… 10801003XX      
-## 10 Albania Common cut…               57 Squids, cuttlef… 3210200202      
-## # … with 17,682 more rows, and 66 more variables: asfis_species_name <chr>,
+##  1 Albania Angelshark~               38 Sharks, rays, c~ 10903XXXXX      
+##  2 Albania Atlantic b~               36 Tunas, bonitos,~ 1750100101      
+##  3 Albania Barracudas~               37 Miscellaneous p~ 17710001XX      
+##  4 Albania Blue and r~               45 Shrimps, prawns  2280203101      
+##  5 Albania Blue whiti~               32 Cods, hakes, ha~ 1480403301      
+##  6 Albania Bluefish                  37 Miscellaneous p~ 1702021301      
+##  7 Albania Bogue                     33 Miscellaneous c~ 1703926101      
+##  8 Albania Caramote p~               45 Shrimps, prawns  2280100117      
+##  9 Albania Catsharks,~               38 Sharks, rays, c~ 10801003XX      
+## 10 Albania Common cut~               57 Squids, cuttlef~ 3210200202      
+## # ... with 17,682 more rows, and 66 more variables: asfis_species_name <chr>,
 ## #   fao_major_fishing_area <dbl>, measure <chr>, x1950 <chr>, x1951 <chr>,
 ## #   x1952 <chr>, x1953 <chr>, x1954 <chr>, x1955 <chr>, x1956 <chr>,
 ## #   x1957 <chr>, x1958 <chr>, x1959 <chr>, x1960 <chr>, x1961 <chr>,
@@ -11437,6 +11437,11 @@ We need to deal with the years because they are being treated as characters and 
 #fisheries_tidy$catch <- as.numeric(fisheries_tidy$catch)
 ```
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+
 3. How many countries are represented in the data? Provide a count and list their names.
 
 ```r
@@ -11465,6 +11470,8 @@ We need to deal with the years because they are being treated as characters and 
 
 10. Use the data to do at least one analysis of your choice.
 
+
+</div>
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences.   
