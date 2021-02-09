@@ -1,6 +1,6 @@
 ---
 title: "Midterm 1"
-author: "Please Add Your Name Here"
+author: "Rizk	Ibrahim"
 date: "`r Sys.Date()`"
 output:
   html_document: 
@@ -20,48 +20,36 @@ Make sure to use the formatting conventions of RMarkdown to make your report nea
 This exam is due by **12:00p on Thursday, January 28**.  
 
 ## Load the tidyverse
-If you plan to use any other libraries to complete this assignment then you should load them here.                                                                                                                                                                                                                                                                                       
+If you plan to use any other libraries to complete this assignment then you should load them here.
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(janitor)
-
 ```
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">  
 
 ## Questions
 **1. (2 points) Briefly explain how R, RStudio, and GitHub work together to make work flows in data science transparent and repeatable. What is the advantage of using RMarkdown in this context?**  
-```{r}
-#R is a computer language that allows for statistical analysis of data. 
 
-#Rstudio is a GUI for R, which increases R's ease of use.
+_R is a computer language that allows for statistical analysis of data. Rstudio is a GUI for R, which increases R's ease of use. Github is an online hosting service for code, and streamlines group access to a program or code. R Markdown (.rmd files) display code written in R in a cleaner format. Knitting an R Markdown allows for the creation of data reports and documents in PDF, HTML, or Word formats. These can be stored on Github for anyone to knit. Github is what connects the individual coding contributions of R users and allows code to be shared, reused, and optimized._
 
-#Github is an online hosting service for code, and streamlines group access to a program or code.
+**2. (2 points) What are the three types of `data structures` that we have discussed? Why are we using data frames for BIS 15L?**  
 
-#R Markdown (.rmd files) display code written in R in a cleaner format. Knitting an R Markdown allows for the creation of data reports and documents in PDF, HTML, or Word formats. These can be stored on Github for anyone to knit.
+_Vectors, data matrices, and data frames. In contrast to vectors and data matrices, data frames are neater, tidier and the data is treated and able to be manipulated in a more fluid and efficient way. In addition, data frames can be stored as .csv files and opened in excel._
 
-#Github is what connects the individual coding contributions of R users and allows code to be shared, reused, and optimized.
+**I suggest not putting text into code chunks. One of the benefits of markdown is allows you to produce clean, consistently formatted reports. If you put test into code chunks you lose these benefits.**  
 
-
-```
-
-**2. (2 points) What are the three types of `data structures` that we have discussed? Why are we using data frames for BIS 15L?**
+</div>
 
 In the midterm 1 folder there is a second folder called `data`. Inside the `data` folder, there is a .csv file called `ElephantsMF`. These data are from Phyllis Lee, Stirling University, and are related to Lee, P., et al. (2013), "Enduring consequences of early experiences: 40-year effects on survival and success among African elephants (Loxodonta africana)," Biology Letters, 9: 20130011. [kaggle](https://www.kaggle.com/mostafaelseidy/elephantsmf).  
 
-```{r}
-#Vectors, data matrices, and data frames
-
-#In contrast to vectors and data matrices, data frames are neater, tidier and the data is treated and able to be manipulatd in a more fluid and efficient way.
-
-#In addition, data frames can be stored as .csv files and opened in excel.
-
-```
-
-**3. (2 points) Please load these data as a new object called `elephants`. Use the function(s) of your choice to get an idea of the structure of the data. Be sure to show the class of each variable.**
-
+**3. (2 points) Please load these data as a new object called `elephants`. Use the function(s) of your choice to get an idea of the structure of the data. Be sure to show the class of each variable.**  
 ```{r}
 elephants <- readr::read_csv("data/ElephantsMF.csv")
 ```
-
 
 **4. (2 points) Change the names of the variables to lower case and change the class of the variable `sex` to a factor.**
 ```{r}
@@ -89,13 +77,21 @@ mean(elephants$age)
 elephants %>%
   group_by(sex) %>%
   summarize(avg_age = mean(age))
-  
 ```
 
 ```{r}
 elephants %>%
   group_by(sex) %>%
   summarize(avg_height = mean(height))
+```
+
+**Remember, you can combine these to make a cleaner output.**
+```{r}
+elephants %>%
+  group_by(sex) %>%
+  summarize(avg_age = mean(age),
+            avg_height = mean(height)
+            )
 ```
 
 **8. (2 points) How does the average height of elephants compare by sex for individuals over 25 years old. Include the min and max height as well as the number of individuals in the sample as part of your analysis.**
@@ -106,46 +102,55 @@ elephants %>%
   filter(age > 25) %>%
   summarize(avg_height = mean(height),
             min_height = min(height),
-            max_height = max(height)) 
-
-            
+            max_height = max(height)
+            )
 ```
-
 
 For the next series of questions, we will use data from a study on vertebrate community composition and impacts from defaunation in [Gabon, Africa](https://en.wikipedia.org/wiki/Gabon). One thing to notice is that the data include 24 separate transects. Each transect represents a path through different forest management areas.  
 
 Reference: Koerner SE, Poulsen JR, Blanchard EJ, Okouyi J, Clark CJ. Vertebrate community composition and diversity declines along a defaunation gradient radiating from rural villages in Gabon. _Journal of Applied Ecology_. 2016. This paper, along with a description of the variables is included inside the midterm 1 folder.  
 
-**9. (2 points) Load `IvindoData_DryadVersion.csv` and use the function(s) of your choice to get an idea of the overall structure. Change the variables `HuntCat` and `LandUse` to factors.**
-
+**9. (2 points) Load `IvindoData_DryadVersion.csv` and use the function(s) of your choice to get an idea of the overall structure. Change the variables `HuntCat` and `LandUse` to factors.**  
 ```{r}
 vertebrate <- readr::read_csv("data/IvindoData_DryadVersion.csv")
+```
 
+```{r}
 vertebrate$HuntCat <- as.factor(vertebrate$HuntCat)
-
 vertebrate$LandUse <- as.factor(vertebrate$LandUse)
+```
 
-
+```{r}
 class(vertebrate$HuntCat)
 class(vertebrate$LandUse)
+```
 
+```{r}
 names(vertebrate)
 str(vertebrate)
 ```
-**10. (4 points) For the transects with high and moderate hunting intensity, how does the average diversity of birds and mammals compare?**
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+**10. (4 points) For the transects with high and moderate hunting intensity, how does the average diversity of birds and mammals compare?**  
 ```{r}
 x <- select(vertebrate, HuntCat, Diversity_BirdSpecies, Diversity_MammalSpecies)
+```
+
+**These are already data frames, so there is no need to convert them by using data.frame()**
+```{r}
 High <- data.frame(filter(x, HuntCat == "High"))
 Moderate <- data.frame(filter(x, HuntCat == "Moderate"))
 ```
+
 ```{r}
 mean(High$Diversity_BirdSpecies)
 mean(High$Diversity_MammalSpecies)
 
 #The value of average diversity of birds tends to be lower than the value of average diversity of mammals
 ```
-
 
 ```{r}
 mean(Moderate$Diversity_BirdSpecies)
@@ -156,6 +161,13 @@ mean(Moderate$Diversity_MammalSpecies)
 #I am unsure which diversity index is used to calculate species diversity, so I am unable to interpret whether a higher value for species diversity corresponds to lower or higher species diversity.
 ```
 
+_You should have a look over the key and see where the problems are in this chunk. The numbers appear to be correct, but some of your coding has mistakes and can be improved._
+</div>
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 **11. (4 points) One of the conclusions in the study is that the relative abundance of animals drops off the closer you get to a village. Let's try to reconstruct this (without the statistics). How does the relative abundance (RA) of apes, birds, elephants, monkeys, rodents, and ungulates compare between sites that are less than 5km from a village to sites that are greater than 20km from a village? The variable `Distance` measures the distance of the transect from the nearest village. Hint: try using the `across` operator.**
 
 ```{r}
@@ -164,7 +176,12 @@ vertebrate %>%
   filter(Distance < 5 | Distance > 20) %>%
   summarize(Distance, across(starts_with("RA")))
 ```
+</div>
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 **12. (4 points) Based on your interest, do one exploratory analysis on the `gabon` data of your choice. This analysis needs to include a minimum of two functions in `dplyr.`**
 
 ```{r}
@@ -172,6 +189,7 @@ pull(vertebrate, Distance)
 
 n_distinct(vertebrate$Distance)
 ```
+</div>
 
 ```{r}
 #I apologize for the late submission! my apartment just had internet restored today after being out since tuesday. I emailed Dr. Ledford earlier this week and he has instructed me to submit whenever I am able to. 
@@ -179,3 +197,4 @@ n_distinct(vertebrate$Distance)
 #Thank you for grading, and all the effort you put into running this class! I am greatly enjoying BIS 015L :)
 ```
 
+_Hi Rizk, No problem on the submission. I took some time going through your exam and there are several places where you should look over the key and see where things can be improved. Some of this is formatting, but in some cases you have some coding errors. Let me know if you have questions._
