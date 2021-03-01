@@ -73,6 +73,10 @@ sydneybeaches_wide <- sydneybeaches_long %>%
 sydneybeaches_wide
 ```
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 5. Pivot the data back so that the dates are data and not column names.
 ```{r}
@@ -80,6 +84,7 @@ sydneybeaches_longer <- sydneybeaches_wide %>%
   pivot_longer(cols = 'site', names_to = 'date', values_to = 'site')
 sydneybeaches_longer
 ```
+</div>
 
 
 6. We haven't dealt much with dates yet, but separate the date into columns day, month, and year. Do this on the `sydneybeaches_long` data.
