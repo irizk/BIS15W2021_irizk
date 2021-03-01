@@ -1,7 +1,7 @@
 ---
 title: "Lab 11 Homework"
 author: "Ibrahim Rizk"
-date: "2021-02-23"
+date: "2021-03-01"
 output:
   html_document: 
     theme: spacelab
@@ -102,6 +102,10 @@ naniar::miss_var_summary(gapminder)
 gapminder <- clean_names(gapminder)
 ```
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 **2. Among the interesting variables in gapminder is life expectancy. How has global life expectancy changed between 1952 and 2007?**
 
@@ -114,6 +118,7 @@ gapminder %>%
 ```
 ## # A tibble: 1 x 0
 ```
+</div>
 
 
 **3. How do the distributions of life expectancy compare for the years 1952 and 2007?**

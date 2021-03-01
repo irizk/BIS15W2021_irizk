@@ -52,6 +52,10 @@ gapminder <- clean_names(gapminder)
 
 ```
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 **2. Among the interesting variables in gapminder is life expectancy. How has global life expectancy changed between 1952 and 2007?**
 ```{r}
@@ -59,6 +63,7 @@ gapminder %>%
   filter(year %in% (1952:2007)) %>% 
   summarise()
 ```
+</div>
 
 
 **3. How do the distributions of life expectancy compare for the years 1952 and 2007?**
