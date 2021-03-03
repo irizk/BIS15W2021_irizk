@@ -81,6 +81,10 @@ count(life_expectancy_tidy, country)
 count(income_tidy, country)
 ```
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 ## Life Expectancy  
 
 3. (2 points) Let's limit the data to the past 100 years (1920-2020). For these years, which country has the highest life expectancy? How about the lowest life expectancy?  
@@ -100,6 +104,7 @@ life_expectancy_tidy %>%
   top_n(-1, life_expectancy)
 # Kazakhstan had the 100-year low of life expectancy in 1933 at 4.07
 ```
+</div>
 
 4. (3 points) Although we can see which country has the highest life expectancy for the past 100 years, we don't know which countries have changed the most. What are the top 5 countries that have experienced the biggest improvement in life expectancy between 1920-2020?
 
@@ -146,7 +151,10 @@ populaton_tidy %>%
 
 # China and India have had exponential growth in the last 100 years
 ```
-
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 ## Income
 The units used for income are gross domestic product per person adjusted for differences in purchasing power in international dollars.
 
@@ -166,7 +174,7 @@ income_tidy %>%
   filter(income != 'NA') %>% 
   ggplot(aes(x = year, y = income, color = country)) + geom_point(position = 'jitter', size = .5) + scale_x_discrete(breaks = c('1920', '1930', '1940', '1950', '1960', '1970', '1980', '1990', '2000', '2010', '2020')) +  theme(axis.text.x = element_text(angle = 30, hjust = 1)) 
 ```
-
+</div>
 
 9. (3 points) Create three new objects that restrict each data set (life expectancy, population, income) to the years 1920-2020. Hint: I suggest doing this with the long form of your data. Once this is done, merge all three data sets using the code I provide below. You may need to adjust the code depending on how you have named your objects. I called mine `life_expectancy_100`, `population_100`, and `income_100`. For some of you, learning these `joins` will be important for your project.  
 
