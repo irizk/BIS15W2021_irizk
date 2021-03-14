@@ -1,7 +1,7 @@
 ---
 title: "Lab 7 Homework"
-author: "Please Add Your Name Here"
-date: "2021-02-19"
+author: "Ibrahim Rizk"
+date: "2021-03-01"
 output:
   html_document: 
     theme: spacelab
@@ -39,7 +39,7 @@ amniota <- read_csv(here('lab7', 'data', 'amniota.csv'))
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   .default = col_double(),
 ##   class = col_character(),
@@ -49,7 +49,7 @@ amniota <- read_csv(here('lab7', 'data', 'amniota.csv'))
 ##   species = col_character(),
 ##   common_name = col_character()
 ## )
-## ℹ Use `spec()` for the full column specifications.
+## i Use `spec()` for the full column specifications.
 ```
 
 ```r
@@ -58,19 +58,19 @@ amniota
 
 ```
 ## # A tibble: 21,322 x 36
-##    class order family genus species subspecies common_name female_maturity…
-##    <chr> <chr> <chr>  <chr> <chr>        <dbl> <chr>                  <dbl>
-##  1 Aves  Acci… Accip… Acci… albogu…       -999 Pied Gosha…            -999 
-##  2 Aves  Acci… Accip… Acci… badius        -999 Shikra                  363.
-##  3 Aves  Acci… Accip… Acci… bicolor       -999 Bicolored …            -999 
-##  4 Aves  Acci… Accip… Acci… brachy…       -999 New Britai…            -999 
-##  5 Aves  Acci… Accip… Acci… brevip…       -999 Levant Spa…             363.
-##  6 Aves  Acci… Accip… Acci… castan…       -999 Chestnut-f…            -999 
-##  7 Aves  Acci… Accip… Acci… chilen…       -999 Chilean Ha…            -999 
-##  8 Aves  Acci… Accip… Acci… chiono…       -999 White-brea…             548.
-##  9 Aves  Acci… Accip… Acci… cirroc…       -999 Collared S…            -999 
-## 10 Aves  Acci… Accip… Acci… cooper…       -999 Cooper's H…             730 
-## # … with 21,312 more rows, and 28 more variables:
+##    class order   family  genus  species subspecies common_name  female_maturity~
+##    <chr> <chr>   <chr>   <chr>  <chr>        <dbl> <chr>                   <dbl>
+##  1 Aves  Accipi~ Accipi~ Accip~ albogu~       -999 Pied Goshawk            -999 
+##  2 Aves  Accipi~ Accipi~ Accip~ badius        -999 Shikra                   363.
+##  3 Aves  Accipi~ Accipi~ Accip~ bicolor       -999 Bicolored H~            -999 
+##  4 Aves  Accipi~ Accipi~ Accip~ brachy~       -999 New Britain~            -999 
+##  5 Aves  Accipi~ Accipi~ Accip~ brevip~       -999 Levant Spar~             363.
+##  6 Aves  Accipi~ Accipi~ Accip~ castan~       -999 Chestnut-fl~            -999 
+##  7 Aves  Accipi~ Accipi~ Accip~ chilen~       -999 Chilean Hawk            -999 
+##  8 Aves  Accipi~ Accipi~ Accip~ chiono~       -999 White-breas~             548.
+##  9 Aves  Accipi~ Accipi~ Accip~ cirroc~       -999 Collared Sp~            -999 
+## 10 Aves  Accipi~ Accipi~ Accip~ cooper~       -999 Cooper's Ha~             730 
+## # ... with 21,312 more rows, and 28 more variables:
 ## #   litter_or_clutch_size_n <dbl>, litters_or_clutches_per_y <dbl>,
 ## #   adult_body_mass_g <dbl>, maximum_longevity_y <dbl>, gestation_d <dbl>,
 ## #   weaning_d <dbl>, birth_or_hatching_weight_g <dbl>, weaning_weight_g <dbl>,
@@ -95,7 +95,7 @@ amphibio <- read_csv(here('lab7', 'data', 'amphibio.csv'))
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   .default = col_double(),
 ##   id = col_character(),
@@ -106,18 +106,18 @@ amphibio <- read_csv(here('lab7', 'data', 'amphibio.csv'))
 ##   Seeds = col_logical(),
 ##   OBS = col_logical()
 ## )
-## ℹ Use `spec()` for the full column specifications.
+## i Use `spec()` for the full column specifications.
 ```
 
 ```
 ## Warning: 125 parsing failures.
-##  row col           expected                                                           actual                                                                  file
-## 1410 OBS 1/0/T/F/TRUE/FALSE Identified as P. appendiculata in Boquimpani-Freitas et al. 2002 '/Users/irizk/Desktop/GitHub/BIS15W2021_irizk/lab7/data/amphibio.csv'
-## 1416 OBS 1/0/T/F/TRUE/FALSE Identified as T. miliaris in Giaretta and Facure 2004            '/Users/irizk/Desktop/GitHub/BIS15W2021_irizk/lab7/data/amphibio.csv'
-## 1447 OBS 1/0/T/F/TRUE/FALSE Considered endangered by Soto-Azat et al. 2013                   '/Users/irizk/Desktop/GitHub/BIS15W2021_irizk/lab7/data/amphibio.csv'
-## 1448 OBS 1/0/T/F/TRUE/FALSE Considered extinct by Soto-Azat et al. 2013                      '/Users/irizk/Desktop/GitHub/BIS15W2021_irizk/lab7/data/amphibio.csv'
-## 1471 OBS 1/0/T/F/TRUE/FALSE nomem dubitum                                                    '/Users/irizk/Desktop/GitHub/BIS15W2021_irizk/lab7/data/amphibio.csv'
-## .... ... .................. ................................................................ .....................................................................
+##  row col           expected                                                           actual                                                                                 file
+## 1410 OBS 1/0/T/F/TRUE/FALSE Identified as P. appendiculata in Boquimpani-Freitas et al. 2002 'D:/TA files/Winter2021 BIS15L/students_rep/BIS15W2021_irizk/lab7/data/amphibio.csv'
+## 1416 OBS 1/0/T/F/TRUE/FALSE Identified as T. miliaris in Giaretta and Facure 2004            'D:/TA files/Winter2021 BIS15L/students_rep/BIS15W2021_irizk/lab7/data/amphibio.csv'
+## 1447 OBS 1/0/T/F/TRUE/FALSE Considered endangered by Soto-Azat et al. 2013                   'D:/TA files/Winter2021 BIS15L/students_rep/BIS15W2021_irizk/lab7/data/amphibio.csv'
+## 1448 OBS 1/0/T/F/TRUE/FALSE Considered extinct by Soto-Azat et al. 2013                      'D:/TA files/Winter2021 BIS15L/students_rep/BIS15W2021_irizk/lab7/data/amphibio.csv'
+## 1471 OBS 1/0/T/F/TRUE/FALSE nomem dubitum                                                    'D:/TA files/Winter2021 BIS15L/students_rep/BIS15W2021_irizk/lab7/data/amphibio.csv'
+## .... ... .................. ................................................................ ....................................................................................
 ## See problems(...) for more details.
 ```
 
@@ -129,17 +129,17 @@ amphibio
 ## # A tibble: 6,776 x 38
 ##    id    Order Family Genus Species   Fos   Ter   Aqu   Arb Leaves Flowers Seeds
 ##    <chr> <chr> <chr>  <chr> <chr>   <dbl> <dbl> <dbl> <dbl>  <dbl>   <dbl> <lgl>
-##  1 Anf0… Anura Allop… Allo… Alloph…    NA     1     1     1     NA      NA NA   
-##  2 Anf0… Anura Alyti… Alyt… Alytes…    NA     1     1     1     NA      NA NA   
-##  3 Anf0… Anura Alyti… Alyt… Alytes…    NA     1     1     1     NA      NA NA   
-##  4 Anf0… Anura Alyti… Alyt… Alytes…    NA     1     1     1     NA      NA NA   
-##  5 Anf0… Anura Alyti… Alyt… Alytes…    NA     1    NA     1     NA      NA NA   
-##  6 Anf0… Anura Alyti… Alyt… Alytes…     1     1     1     1     NA      NA NA   
-##  7 Anf0… Anura Alyti… Disc… Discog…     1     1     1    NA     NA      NA NA   
-##  8 Anf0… Anura Alyti… Disc… Discog…     1     1     1    NA     NA      NA NA   
-##  9 Anf0… Anura Alyti… Disc… Discog…     1     1     1    NA     NA      NA NA   
-## 10 Anf0… Anura Alyti… Disc… Discog…     1     1     1    NA     NA      NA NA   
-## # … with 6,766 more rows, and 26 more variables: Fruits <dbl>, Arthro <dbl>,
+##  1 Anf0~ Anura Allop~ Allo~ Alloph~    NA     1     1     1     NA      NA NA   
+##  2 Anf0~ Anura Alyti~ Alyt~ Alytes~    NA     1     1     1     NA      NA NA   
+##  3 Anf0~ Anura Alyti~ Alyt~ Alytes~    NA     1     1     1     NA      NA NA   
+##  4 Anf0~ Anura Alyti~ Alyt~ Alytes~    NA     1     1     1     NA      NA NA   
+##  5 Anf0~ Anura Alyti~ Alyt~ Alytes~    NA     1    NA     1     NA      NA NA   
+##  6 Anf0~ Anura Alyti~ Alyt~ Alytes~     1     1     1     1     NA      NA NA   
+##  7 Anf0~ Anura Alyti~ Disc~ Discog~     1     1     1    NA     NA      NA NA   
+##  8 Anf0~ Anura Alyti~ Disc~ Discog~     1     1     1    NA     NA      NA NA   
+##  9 Anf0~ Anura Alyti~ Disc~ Discog~     1     1     1    NA     NA      NA NA   
+## 10 Anf0~ Anura Alyti~ Disc~ Discog~     1     1     1    NA     NA      NA NA   
+## # ... with 6,766 more rows, and 26 more variables: Fruits <dbl>, Arthro <dbl>,
 ## #   Vert <dbl>, Diu <dbl>, Noc <dbl>, Crepu <dbl>, Wet_warm <dbl>,
 ## #   Wet_cold <dbl>, Dry_warm <dbl>, Dry_cold <dbl>, Body_mass_g <dbl>,
 ## #   Age_at_maturity_min_y <dbl>, Age_at_maturity_max_y <dbl>,
@@ -239,7 +239,7 @@ naniar::miss_var_summary(amniota)
 ##  8 female_maturity_d              0        0
 ##  9 litter_or_clutch_size_n        0        0
 ## 10 litters_or_clutches_per_y      0        0
-## # … with 26 more rows
+## # ... with 26 more rows
 ```
 
 **3. Do some exploratory analysis of the `amphibio` data set. Use the function(s) of your choice. Try to get an idea of how NA's are represented in the data.**  
@@ -250,7 +250,7 @@ str(amphibio)
 ```
 
 ```
-## tibble [6,776 × 38] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+## spec_tbl_df [6,776 x 38] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ##  $ id                     : chr [1:6776] "Anf0001" "Anf0002" "Anf0003" "Anf0004" ...
 ##  $ Order                  : chr [1:6776] "Anura" "Anura" "Anura" "Anura" ...
 ##  $ Family                 : chr [1:6776] "Allophrynidae" "Alytidae" "Alytidae" "Alytidae" ...
@@ -289,12 +289,12 @@ str(amphibio)
 ##  $ Lar                    : num [1:6776] 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ Viv                    : num [1:6776] 0 0 0 0 0 0 0 0 0 0 ...
 ##  $ OBS                    : logi [1:6776] NA NA NA NA NA NA ...
-##  - attr(*, "problems")= tibble [125 × 5] (S3: tbl_df/tbl/data.frame)
+##  - attr(*, "problems")= tibble [125 x 5] (S3: tbl_df/tbl/data.frame)
 ##   ..$ row     : int [1:125] 1410 1416 1447 1448 1471 1488 1539 1540 1543 1544 ...
 ##   ..$ col     : chr [1:125] "OBS" "OBS" "OBS" "OBS" ...
 ##   ..$ expected: chr [1:125] "1/0/T/F/TRUE/FALSE" "1/0/T/F/TRUE/FALSE" "1/0/T/F/TRUE/FALSE" "1/0/T/F/TRUE/FALSE" ...
 ##   ..$ actual  : chr [1:125] "Identified as P. appendiculata in Boquimpani-Freitas et al. 2002" "Identified as T. miliaris in Giaretta and Facure 2004" "Considered endangered by Soto-Azat et al. 2013" "Considered extinct by Soto-Azat et al. 2013" ...
-##   ..$ file    : chr [1:125] "'/Users/irizk/Desktop/GitHub/BIS15W2021_irizk/lab7/data/amphibio.csv'" "'/Users/irizk/Desktop/GitHub/BIS15W2021_irizk/lab7/data/amphibio.csv'" "'/Users/irizk/Desktop/GitHub/BIS15W2021_irizk/lab7/data/amphibio.csv'" "'/Users/irizk/Desktop/GitHub/BIS15W2021_irizk/lab7/data/amphibio.csv'" ...
+##   ..$ file    : chr [1:125] "'D:/TA files/Winter2021 BIS15L/students_rep/BIS15W2021_irizk/lab7/data/amphibio.csv'" "'D:/TA files/Winter2021 BIS15L/students_rep/BIS15W2021_irizk/lab7/data/amphibio.csv'" "'D:/TA files/Winter2021 BIS15L/students_rep/BIS15W2021_irizk/lab7/data/amphibio.csv'" "'D:/TA files/Winter2021 BIS15L/students_rep/BIS15W2021_irizk/lab7/data/amphibio.csv'" ...
 ##  - attr(*, "spec")=
 ##   .. cols(
 ##   ..   id = col_character(),
@@ -356,7 +356,7 @@ naniar::miss_var_summary(amphibio)
 ##  8 Wet_cold   6625     97.8
 ##  9 Crepu      6608     97.5
 ## 10 Dry_warm   6572     97.0
-## # … with 28 more rows
+## # ... with 28 more rows
 ```
 
 **4. How many total NA's are in each data set? Do these values make sense? Are NA's represented by values?**   
@@ -369,10 +369,10 @@ amniota %>%
 
 ```
 ## # A tibble: 1 x 36
-##   class order family genus species subspecies common_name female_maturity…
-##   <int> <int>  <int> <int>   <int>      <int>       <int>            <int>
-## 1     0     0      0     0       0          0           0                0
-## # … with 28 more variables: litter_or_clutch_size_n <int>,
+##   class order family genus species subspecies common_name female_maturity_d
+##   <int> <int>  <int> <int>   <int>      <int>       <int>             <int>
+## 1     0     0      0     0       0          0           0                 0
+## # ... with 28 more variables: litter_or_clutch_size_n <int>,
 ## #   litters_or_clutches_per_y <int>, adult_body_mass_g <int>,
 ## #   maximum_longevity_y <int>, gestation_d <int>, weaning_d <int>,
 ## #   birth_or_hatching_weight_g <int>, weaning_weight_g <int>, egg_mass_g <int>,
@@ -410,7 +410,7 @@ amphibio %>%
 ##  8 Wet_cold   6625     97.8
 ##  9 Crepu      6608     97.5
 ## 10 Dry_warm   6572     97.0
-## # … with 28 more rows
+## # ... with 28 more rows
 ```
 
 **5. Make any necessary replacements in the data such that all NA's appear as "NA".**   
@@ -436,7 +436,7 @@ naniar::miss_var_summary(amniota_tidy)
 ##  8 egg_length_mm                   20702     97.1
 ##  9 weaning_weight_g                20258     95.0
 ## 10 female_svl_cm                   20242     94.9
-## # … with 26 more rows
+## # ... with 26 more rows
 ```
 
 
@@ -451,6 +451,10 @@ amniota_tidy %>%
 ##                   <int>
 ## 1                528196
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 **6. Use the package `naniar` to produce a summary, including percentages, of missing data in each column for the `amniota` data.**  
 
@@ -472,8 +476,9 @@ naniar::miss_var_summary(amniota)
 ##  8 female_maturity_d              0        0
 ##  9 litter_or_clutch_size_n        0        0
 ## 10 litters_or_clutches_per_y      0        0
-## # … with 26 more rows
+## # ... with 26 more rows
 ```
+</div>
 
 **7. Use the package `naniar` to produce a summary, including percentages, of missing data in each column for the `amphibio` data.**
 
@@ -495,7 +500,7 @@ naniar::miss_var_summary(amphibio)
 ##  8 Wet_cold   6625     97.8
 ##  9 Crepu      6608     97.5
 ## 10 Dry_warm   6572     97.0
-## # … with 28 more rows
+## # ... with 28 more rows
 ```
 
 **8. For the `amniota` data, calculate the number of NAs in the `egg_mass_g` column sorted by taxonomic class; i.e. how many NA's are present in the `egg_mass_g` column in birds, mammals, and reptiles? Does this results make sense biologically? How do these results affect your interpretation of NA's?**  
@@ -543,6 +548,10 @@ amphibio %>%
 ```r
 #No - Because these traits are categorical, I believe the authors intended to indicate the presence or absence of a trait. 
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 **10. Now that we know how NA's are represented in the `amniota` data, how would you load the data such that the values which represent NA's are automatically converted?**
 
@@ -555,6 +564,7 @@ amphibio %>%
 # amniota_tidier <- read_csv(here('lab7', 'data', 'amniota.csv')) %>%
   #na_if(c(' ', '-999', 'NA', '.'))
 ```
+</div>
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences.  

@@ -88,11 +88,16 @@ naniar::miss_var_summary(amniota_tidy)
 amniota_tidy %>%
   summarise(NA_total_amniota_tidy = (sum(is.na(.))))
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 **6. Use the package `naniar` to produce a summary, including percentages, of missing data in each column for the `amniota` data.**  
 ```{r}
 naniar::miss_var_summary(amniota)
 ```
+</div>
 
 **7. Use the package `naniar` to produce a summary, including percentages, of missing data in each column for the `amphibio` data.**
 ```{r}
@@ -117,6 +122,10 @@ amphibio %>%
 
 #No - Because these traits are categorical, I believe the authors intended to indicate the presence or absence of a trait. 
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 **10. Now that we know how NA's are represented in the `amniota` data, how would you load the data such that the values which represent NA's are automatically converted?**
 ```{r}
@@ -128,6 +137,7 @@ amphibio %>%
 # amniota_tidier <- read_csv(here('lab7', 'data', 'amniota.csv')) %>%
   #na_if(c(' ', '-999', 'NA', '.'))
 ```
+</div>
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences.  
