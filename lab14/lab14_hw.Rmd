@@ -1,6 +1,6 @@
 ---
 title: "Lab 14 Homework"
-author: "Please Add Your Name Here"
+author: "Ibrahim Rizk"
 date: "`r Sys.Date()`"
 output: 
   html_document: 
@@ -22,21 +22,54 @@ library(qtl)
 library(qtlcharts)
 library(tidyverse)
 library(ggmap)
+library(here)
 ```
 
 **1. We have a satellite collars on a number of different individuals and want to be able to quickly look at all of their recent movements at once. Please load all the data files from `us_individual_collar_data` and use for loop to create plots for all different individuals of the path they move on longitude and latitude.**
 ```{r}
+satellite_US <- list.files('data/us_individual_collar_data', pattern = 'collar-data-*', full.names = T)
+satellite_US
 
+for (i in 1:length(satellite_US)){
+  satellite_US_df1 <- as.data.frame(read_csv(satellite_US[i]))
+  print(ggplot(satellite_US_df1, aes(x=long,y=lat))
+        +geom_path()
+        + labs(title = satellite_US[i], x = "longitude", y = "latitude")
+        )
+  
+}
 ```
 
 **2. Please load all the data files from `us_individual_collar_data` and combine all data into one data frame. Create a summary to show what is the maximum and minimum of recorded data points on longitude and latitude.**
 ```{r}
+satmerged <- lapply(satellite_US, read_csv) %>%
+  bind_rows()
+satmerged
+summary(satmerged)
 
 ```
 
 **3. Use the range of the latitude and longitude from Q2 to build an appropriate bounding box for your map and load a map from `stamen` in a terrain style projection and display the map. Then, build a final map that overlays the recorded path from Q1.**
 ```{r}
+# Lat 26.61 to 41.59, Long -122.6 to -106.3
+lat <- c(26.61, 41.59)
+long <- c(-122.6, -106.3)
+sat_bbox <- make_bbox(long, lat, f = .05)
+sat_map <- get_map(sat_bbox, maptype = 'terrain', source = 'stamen')
+ggmap(sat_map)
+```
 
+
+```{r}
+for (i in 1:length(satellite_US)){
+  satellite_US_df2 <-  as.data.frame(read_csv(satellite_US[i]))
+  print(
+    ggmap(sat_map)+
+      geom_path(data = satellite_US_df2, aes(long,lat))+
+      geom_point(data = satellite_US_df2, aes(long,lat))+
+      labs(title = satellite_US[i], x = "Longitude", y = "Latitude")
+  )
+}
 ```
 
 ## Load the Data
@@ -48,37 +81,59 @@ data(hyper)
 
 **4. Create a summary of the hypertension data. How many individuals and phenotypes are included in this data set? How many gene markers and chromosomes are included in this data set? Please create a table to show the number of markers on each chromosome.**
 ```{r}
-
+summary(hyper)
+plot(hyper)
 ```
 
 **5. Please make an interactive genetic map of markers for the hypertension data.**
 ```{r}
-
+iplotMap(hyper)
 ```
 
 **6. Make a plot shows the pattern of missing genotype data in the hypertension dataset. Please reorder the recorded individuals according to their blood pressure phenotypes. Is there a specific pattern of missing genotype? Please explain it.**
 ```{r}
-
+plotMissing(hyper, main = '', reorder = 1)
 ```
 
 **7. Based on your answer from previous question, you probably noticed that there are gene markers without data. Please use the function `drop.nullmarkers` to remove markers that have no genotype data. After this, make a new summary to show the number of markers on each chromosome. How many gene markers were dropped? Where were the dropped markers located? Please use the data without nullmarkers for the following questions.**
 ```{r}
 drop.nullmarkers(hyper)
 ```
+```{r}
+hyper_dropped <- drop.nullmarkers(hyper)
+summary(hyper)
+summary(hyper_dropped)
+
+#One marker dropped, at Chromosome 14
+```
 
 **8. Please conduct single-QTL analysis and create a table to give the maximum LOD score on each chromosome based on their blood pressure phenotypes. Which gene marker has the higiest LOD score? Which chromosome contains the gene marker that has the highest LOD score? Then, creates an interactive chart with LOD curves from a genome scan for all chromosomes.**
 ```{r}
+hyper_sQTL <- calc.genoprob(hyper_dropped, step=1)
+summary(hyper_sQTL)
 
+hyper_final <- scanone(hyper_sQTL, pheno.col = 1)
+arrange(hyper_final, desc(lod)) %>% 
+  top_n(1, lod)
+
+#D4Mit164 on chromosome #4 has highest LOD score
+
+iplotScanone(hyper_final)
 ```
 
 **9. Based on your genome scan results, create a table which only includes those chromosomes with LOD > 1. Creates an interactive chart with LOD curves linked to estimated QTL effects for only those chromosomes with LOD > 1. Find the gene maker with the highest LOD score and describe how does the genetype of this marker influence the individual's phenotype.**
 ```{r}
+summary(hyper_final, threshold=1)
 
+#Chr = 1,2,4,5,6,15
+
+iplotScanone(hyper_final, chr=c(1,2,4,5,6,15))
 ```
 
 **10. Please save your interactive chart from Q9 as a html file `hyper_iplotScanone.html` and make sure your upload it to your github repository with your lab14 homework as well.**
 ```{r}
-
+hyper_plot <- iplotScanone(hyper_final, chr=c(1,2,4,5,6,15))
+htmlwidgets::saveWidget(hyper_plot,file="hyper_iplot.html")
 ```
 
 ## Push your final code to GitHub!
