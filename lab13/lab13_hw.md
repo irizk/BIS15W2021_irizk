@@ -1,7 +1,7 @@
 ---
 title: "Lab 13 Homework"
 author: "Please Add Your Name Here"
-date: "2021-03-14"
+date: "2021-03-15"
 output:
   html_document: 
     theme: spacelab
@@ -32,18 +32,18 @@ if (!require("tidyverse")) install.packages('tidyverse')
 ```
 
 ```
-## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──
+## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --
 ```
 
 ```
-## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
-## ✓ tibble  3.1.0     ✓ dplyr   1.0.4
-## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
-## ✓ readr   1.4.0     ✓ forcats 0.5.0
+## √ ggplot2 3.3.3     √ purrr   0.3.4
+## √ tibble  3.1.0     √ dplyr   1.0.4
+## √ tidyr   1.1.3     √ stringr 1.4.0
+## √ readr   1.4.0     √ forcats 0.5.1
 ```
 
 ```
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -65,7 +65,7 @@ UC_admit <- readr::read_csv("data/UC_admit.csv")
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   Campus = col_character(),
 ##   Academic_Yr = col_double(),
@@ -84,7 +84,7 @@ str(UC_admit)
 ```
 
 ```
-## spec_tbl_df [2,160 × 6] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+## spec_tbl_df [2,160 x 6] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ##  $ Campus         : chr [1:2160] "Davis" "Davis" "Davis" "Davis" ...
 ##  $ Academic_Yr    : num [1:2160] 2019 2019 2019 2019 2019 ...
 ##  $ Category       : chr [1:2160] "Applicants" "Applicants" "Applicants" "Applicants" ...
@@ -153,6 +153,10 @@ server <- function(input, output, session) {
 session$onSessionEnded(stopApp)
 }
 shinyApp(ui, server)
+```
+
+```
+## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.
 ```
 
 `<div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div>`{=html}
