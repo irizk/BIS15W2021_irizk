@@ -120,6 +120,12 @@ arrange(hyper_final, desc(lod)) %>%
 
 iplotScanone(hyper_final)
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+
+# need to add `hyper` in order to show the linked plot of estimated QTL effects.
 
 **9. Based on your genome scan results, create a table which only includes those chromosomes with LOD > 1. Creates an interactive chart with LOD curves linked to estimated QTL effects for only those chromosomes with LOD > 1. Find the gene maker with the highest LOD score and describe how does the genetype of this marker influence the individual's phenotype.**
 ```{r}
@@ -129,6 +135,7 @@ summary(hyper_final, threshold=1)
 
 iplotScanone(hyper_final, chr=c(1,2,4,5,6,15))
 ```
+</div>
 
 **10. Please save your interactive chart from Q9 as a html file `hyper_iplotScanone.html` and make sure your upload it to your github repository with your lab14 homework as well.**
 ```{r}
